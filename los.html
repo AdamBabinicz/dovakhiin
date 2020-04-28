@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Losowanie 6 liczb</title>
+	<style>
+		html {
+			font-family: arial;
+			justify-content:
+		}
+
+		button {
+			display: block;
+			margin: 0 auto;
+			background-color: #fff;
+			border: 3px solid #000;
+			padding: 10px 20px;
+			font-size: 20px;
+
+		}
+
+		button:hover {
+			background-color: #000;
+			color: #fff;
+			transition: .3s;
+		}
+
+		div {
+			float: left;
+			width: 60px;
+			height: 60px;
+			border-radius: 50%;
+			background-color: #0e5d5d;
+			margin: 10px;
+			line-height: 60px;
+			text-align: center;
+			font-weight: 700;
+			color: #fff;
+		}
+
+	</style>
+</head>
+
+<body>
+	<button>Losuj</button>
+	<!--	<div>23</div>-->
+	<script>
+		const result = [];
+		const losowanie = function() {
+			if (result.length === 6) return;
+			//Tworzymy element div
+
+			const wynikLosowania = Math.floor(Math.random() * 49 + 1);
+			for (let i = 0; i < result.length; i++) {
+				if (wynikLosowania === result[i]) {
+					console.log("ta sama liczba");
+					return losowanie()
+				}
+			}
+			const div = document.createElement("div");
+			div.textContent = wynikLosowania;
+			document.body.appendChild(div);
+			result.push(wynikLosowania); //Dodajemy do tablicy wyników (result)
+		}
+		//Pobranie elementu
+		const button = document.querySelector("button");
+		//Nasłuchiwanie na zdarzenie klik
+		button.addEventListener("click", losowanie)
+
+	</script>
+</body>
+
+</html>
