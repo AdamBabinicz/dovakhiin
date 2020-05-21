@@ -495,12 +495,23 @@
         font-family: sans-serif;
       }
 
-      footer p {
+      /* footer p {
         text-align: center;
         background-image: linear-gradient(#b19260, #f4e17f);
         margin: -1.9vh 0 0 0;
         padding: 0.6rem;
         color: mediumblue;
+      } */
+      footer {
+        /* position: absolute; */
+        bottom: 0;
+        /* background-color: #2e3b53; */
+        width: 100%;
+        color: white;
+        text-align: center;
+        padding: 16px 0;
+        font-family: "Open Sans Condensed", sans-serif;
+        font-size: 1.5rem;
       }
 
       a:link {
@@ -866,12 +877,18 @@
       </div>
     </main>
     <footer>
-      <p><strong>Wiktor &copy; 2017 - 2020</strong></p>
+      <!-- <p><strong>Wiktor &copy; 2017 - 2020</strong></p> -->
     </footer>
     <video id="bg" autoplay="autoplay" loop="loop" controls muted>
       <source src="m.mp4" type="video/mp4" />
     </video>
+    <script>
+      var year = new Date().getFullYear();
 
+      var date = `Wiktor &copy; 2017 - ${year}. All Rights Reserved.`;
+
+      document.getElementsByTagName("footer")[0].innerHTML = date;
+    </script>
     <script>
       document.body.innerHTML +=
         '<div id="cookiesAlert" style="border-radius: .5rem .5rem 0 0;display:flex;align-items: center;padding-left:1rem;background:#ccc;opacity:.7;position:fixed;left:11px;bottom:0;z-index:99999999;font-family:sans-serif;text-align:center;font-size:12px;">Ta strona używa plików cookies. <button style="font-size:14px;font-weight:900;border-top-right-radius:.5rem;padding:6px;border:none;background:#aaa;cursor:pointer;" id="acceptBtn" onclick="document.getElementById(\'cookiesAlert\').style.display = \'none\';">OK</button></div>';
